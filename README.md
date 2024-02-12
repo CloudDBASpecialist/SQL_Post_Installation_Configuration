@@ -2,25 +2,23 @@
 
 Welcome to the SQL Post-Installation Configuration repository! Here, we gather a collection of scripts and guidelines for configuring SQL servers after installation. These scripts aim to streamline the post-installation process and ensure optimal performance and security.
 
-## Purpose
-After installing SQL Server, there are various configurations and settings that need to be adjusted according to specific requirements. This repository provides a centralized location for storing scripts and documentation related to post-installation configuration tasks.
+Please note that you need to modify the scripts below according to your environment.
 
-## Contents
-- **Scripts:** Contains SQL scripts for common post-installation tasks such as setting up security, configuring database options, enabling features, and more.
-- **Documentation:** Provides guidelines, best practices, and instructions for executing the scripts and performing post-installation configuration effectively.
+- **05_Setup_DBA_Operator:** Change the operator name and email address.
+- **07_Create_SQLDBA_Login:** This script creates an SQL login to manage all SQL servers. You can use this login for tasks such as creating registered servers or utilizing it in SQL monitoring tools.
+- **08_Setup_Email_Profile_and_Account:** Modify the domain name and mail server name (IP) in this script.
+- **21_Create_DBA_Accounts:** Update the script by inserting all your DBA team usernames.
 
 ## Contributing
-Contributions to this repository are welcome! Whether it's adding new scripts, improving existing ones, or enhancing documentation, your contributions help make this resource more valuable to the SQL community.
-
-If you have any suggestions, improvements, or new scripts to add, feel free to submit a pull request.
+Contributions are welcome! Feel free to add new scripts or improve existing ones.
 
 ## Usage
-To use the scripts in this repository, simply clone or download the repository to your SQL Server environment. Review the documentation for each script to understand its purpose and usage instructions. Execute the scripts in your SQL Server Management Studio (SSMS) or any SQL command-line tool, ensuring proper permissions and precautions are taken.
+Clone/download the repository to your SQL Server environment, customize scripts, and execute them in SQL Server Management Studio or a command-line tool.
 
 ## Feedback and Support
-If you encounter any issues with the scripts or have questions regarding the post-installation configuration process, don't hesitate to open an issue. We're here to help and improve this resource based on your feedback.
+For issues or questions, open an issue. We're here to help!
 
 ## License
-This repository is licensed under the [MIT License](LICENSE), which means you are free to use, modify, and distribute the content as long as you include the original license and disclaimer.
+This repository is licensed under the [MIT License](LICENSE).
 
 Happy configuring!
