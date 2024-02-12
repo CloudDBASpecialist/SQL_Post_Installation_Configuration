@@ -24,9 +24,9 @@ WHERE SAD.audit_action_id IN ('CNAU', 'LGFL', 'LGSD');
 
 The result set should contain 3 rows, one for each of the following audit_action_names:
 
-• AUDIT_CHANGE_GROUP
-• FAILED_LOGIN_GROUP
-• SUCCESSFUL_LOGIN_GROUP
+â€¢ AUDIT_CHANGE_GROUP
+â€¢ FAILED_LOGIN_GROUP
+â€¢ SUCCESSFUL_LOGIN_GROUP
 Both the Audit and Audit specification should be enabled and the audited_result should 
 include both success and failure.
 */
@@ -718,64 +718,13 @@ Create DBA Team Users
 
 */
 
-/*
-GO 
-
-
-declare @tsql nvarchar (4000)
-DECLARE @defaultDomain nvarchar(max)
-SELECT @defaultDomain = DEFAULT_DOMAIN()
-declare @elm_dba_username nvarchar (50)
-
-
-
-
-begin try drop table #default_dba_sysadmins  end try begin catch end catch 
-create table #default_dba_sysadmins ( elm_dba_username nvarchar (100) , done int ) 
-
-insert into #default_dba_sysadmins 
-select			 '['+ @defaultDomain +'\aalsulaiman'	+']',0
-union all select '['+ @defaultDomain +'\mshafiq'		+']',0
-union all select '['+ @defaultDomain +'\sabdulazahar'	+']',0
-union all select '['+ @defaultDomain +'\moalsharani'	+']',0
-union all select '['+ @defaultDomain +'\zaziz'			+']',0
-union all select '['+ @defaultDomain +'\hmali'			+']',0
-union all select '['+ @defaultDomain +'\lalnizi'		+']',0
-union all select '['+ @defaultDomain +'\abdalrashed'	+']',0
-
-
-select * from #default_dba_sysadmins
-declare @icount int = 0 
-declare @idone int 
-select @idone = done , @elm_dba_username  = elm_dba_username from  #default_dba_sysadmins where done = 0 
-
-while @idone = 0 and @icount < 8
-begin 
-
-	SET @tsql = 'CREATE LOGIN  ' + @elm_dba_username + ' FROM WINDOWS WITH DEFAULT_DATABASE=[master] '
-	EXEC (@tsql)
-
-	SET @tsql = 'ALTER SERVER ROLE [sysadmin] ADD MEMBER ' + @elm_dba_username 
-	EXEC (@tsql)
-
-	update #default_dba_sysadmins set done = 1 where elm_dba_username  = @elm_dba_username 
-	select @idone = done from  #default_dba_sysadmins where done = 0 
-	
-	set @icount = @icount + 1 
-	
-end
-
-
-GO
-
-*/
 
 /*
 
 "Following Server level settings should be done: 
 Compress Backup should be checked in database settings
 Login Audit for both Failed and Successful Logins
-Server Authentication to be windows only. In case there are any applications not support windows authentication then Mixed mode authentication can be used"	  	Yes		Yes	Yes	Yes	Yes	Yes	Database Setup	"EXEC xp_loginconfig 'audit level';
+Server Authentication to be windows only. In case there are any applications not support windows authentication then Mixed mode authentication can be used"	Â Â 	Yes		Yes	Yes	Yes	Yes	Yes	Database Setup	"EXEC xp_loginconfig 'audit level';
 A config_value of failure indicates a server login auditing setting of Failed logins only. 
 If a config_value of all appears, then both failed and successful logins are being logged. 
 Both settings should also be considered valid, but as mentioned capturing successful logins 
