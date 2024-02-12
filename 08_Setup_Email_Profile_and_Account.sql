@@ -13,10 +13,10 @@ declare @profile_name		nvarchar (255)
 SELECT @serverComputerName = convert(varchar ,SERVERPROPERTY('ComputerNamePhysicalNetBIOS'))
   
 SET	@account_name = 'DBA_MAIL_ACCOUNT'  
-SET @email_address = @serverComputerName+'@elm.sa'    -- Change your domain name 
-SET @replyto_address = 'noreply@elm.sa'
+SET @email_address = @serverComputerName+'@XYZ.sa'    -- Change your domain name 
+SET @replyto_address = 'noreply@XYZ.sa'     -- Change your domain name 
 SET @display_name = @serverComputerName+' DBA Auto Mailer'  
-SET @mailserver_name = '192.168.XX.XX'    -- your mail server IP
+SET @mailserver_name = '192.XX.XX.XX'    -- your mail server IP
 SET @profile_name = 'DBA_MAIL_PROFILE'
   
 SELECT  @serverComputerName ,@account_name ,@email_address ,@replyto_address ,@display_name,@mailserver_name 	
