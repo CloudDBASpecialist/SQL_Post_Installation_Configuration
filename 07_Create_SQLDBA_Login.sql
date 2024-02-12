@@ -6,7 +6,7 @@ PASSWORD = ,
  SID = , 
 DEFAULT_DATABASE = [master], CHECK_POLICY = ON, CHECK_EXPIRATION = OFF
  
-    PRINT 'Login "P-IDM-SVC-DB" created.';
+    PRINT 'Login "P-SQL-DBA-DB" created.';
 END
 ELSE
 BEGIN
